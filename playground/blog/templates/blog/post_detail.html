@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="membre">
+        <h1
+        {% if Membre.photo %}
+        <img src="{{ Membre.photo }}" alt="{{ Membre.id_membre }}">
+        {% endif %}
+        <h2>Nom du membre : {{ Membre.id_membre}}</h2>
+        <h3>Informations : </h3>
+        {% if Membre.lateralite %}
+            <p>Latéralité : {{ Membre.lateralite }}</p>
+        {% endif %}
+        
+        {% if Membre.age %}
+            <p>Âge : {{ Membre.age }}</p>
+        {% endif %}
+
+        {% if Membre.etat %}
+            <p>Que fait-il/elle ? : {{ Membre.etat }}</p>
+        {% endif %}
+        
+        <p>{{ Membre.text}}</p>
+    </div>
+{% endblock %}
