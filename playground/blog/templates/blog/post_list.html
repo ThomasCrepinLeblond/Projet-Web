@@ -1,0 +1,50 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h1>Liste des Membres</h1>
+<div class = "container text-center">
+  <div class = "row align-item-start">
+        {% for Membre in membres %}
+        <div class = "col">
+          <h2><a href="{% url 'post_detail' id_membre=Membre.id_membre %}">{{Membre.id_membre}}</a></h2>
+          <p>État: {{ Membre.etat }}</p>
+          <p>Lateralite: {{ Membre.lateralite }}</p>
+          <p>Age: {{ Membre.age }}</p>
+          <img src="{{ Membre.photo }}" width ="200" alt="{{ Membre.id_membre }}">
+          <p>Lieu: {{ Membre.lieu.id_equip }} - {{ Membre.lieu.disponibilite }}</p>
+        </div>
+        {% endfor %} 
+      </div>
+  </div>
+
+<h1>Liste des Equipements</h1>
+<div class = "container text-center">
+    <div class = "row align-item-start">
+      {% for equipement in equipements %}
+        <div class="col">
+          <h2>{{ equipement.id_equip }}</h2>
+          <p>Disponibilité: {{ equipement.disponibilite }}</p>
+          <img src="{{ equipement.photo }}" width="200" alt="{{ equipement.id_equip }}">
+        </div>
+      {% endfor %}
+    </div>
+</div>
+
+    
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
